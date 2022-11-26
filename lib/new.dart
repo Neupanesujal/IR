@@ -16,7 +16,7 @@ class ApiServices{
     Response response = await get(Uri.parse(endpoint));
     print("${response.body} hya aayo ");
     if(response.statusCode == 200){
-       final List result= json.decode(response.body)['data'];
+       final List result= json.decode(response.body);
        return result.map(((e) => userModel.fromJson(e))).toList();
     }
     else{
